@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.1.1 (2017-02-22)
+~~~~~~~~~~~~~~~~~~
+
+**Fixed**
+
+- Third-party ``import`` statements were incorrectly being marked as import order errors
+
 1.1.0 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
 
