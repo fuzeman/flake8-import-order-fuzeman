@@ -1,4 +1,5 @@
-from flake8_import_order import (IMPORT_3RD_PARTY, IMPORT_APP, IMPORT_APP_PACKAGE, IMPORT_APP_RELATIVE, IMPORT_STDLIB)
+from flake8_import_order import (IMPORT_3RD_PARTY, IMPORT_APP, IMPORT_APP_PACKAGE, IMPORT_APP_RELATIVE,
+                                 IMPORT_FUTURE, IMPORT_STDLIB)
 from flake8_import_order.checker import ImportOrderChecker
 from flake8_import_order.styles import Error, Style, lookup_entry_point
 import ast
@@ -42,9 +43,11 @@ class Fuzeman(Style):
 
         group = import_.type
 
-        # Order application imports above relative imports
+        # Reorder import types
         if group in (IMPORT_APP, IMPORT_APP_PACKAGE):
             group += IMPORT_APP_RELATIVE
+        elif group == IMPORT_FUTURE:
+            group += IMPORT_APP + IMPORT_APP_RELATIVE + 10
 
         # Order `import ...` below `from ... import ...`
         if not import_.is_from:
@@ -119,6 +122,8 @@ class TestCase(unittest.TestCase):
         return test_func
 
     test_valid_1 = make_test([], '''
+        from __future__ import absolute_import
+    
         from myapp import something
         from myapp.helpers import get_view
         from myapp.views import *
