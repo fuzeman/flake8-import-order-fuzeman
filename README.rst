@@ -74,6 +74,12 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.0.1 (2017-02-22)
+~~~~~~~~~~~~~~~~~~
+
+**Fixed**
+ - Incorrect ``install_requires`` definition in ``setup.py``
+
 1.0.0 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
 
