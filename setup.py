@@ -12,7 +12,7 @@ def readme():
 
 setup(
     name='flake8-import-order-fuzeman',
-    version='1.0.2',
+    version='1.1.0',
     description="@fuzeman's import order style for flake8-import-order",
     long_description=readme(),
     url='https://github.com/fuzeman/flake8-import-order-fuzeman',

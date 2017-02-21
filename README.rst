@@ -74,6 +74,18 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.1.0 (2017-02-22)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+ - ``collections``, ``datetime`` and ``decimal`` are now ``from ...`` importable
+
+**Changed**
+ - ``import`` is now permitted for third-party libraries
+
+**Fixed**
+ - ``__future__`` imports were incorrectly being marked as import order errors
+
 1.0.2 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
 
