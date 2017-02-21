@@ -53,6 +53,8 @@ class Fuzeman(Style):
             group += IMPORT_APP_RELATIVE
         elif group == IMPORT_FUTURE:
             group += IMPORT_APP + IMPORT_APP_RELATIVE + 10
+        elif group == IMPORT_3RD_PARTY:
+            group = IMPORT_STDLIB
 
         # Order `import ...` below `from ... import ...`
         if not import_.is_from:
@@ -134,6 +136,7 @@ class TestCase(unittest.TestCase):
 
         from pkg_resources import (SOURCE_DIST, EntryPoint, Requirement, get_provider)
         from typing import Optional
+        import arrow
         import datetime
         import sys
     ''')
