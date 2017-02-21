@@ -78,13 +78,16 @@ Changelog
 ~~~~~~~~~~~~~~~~~~
 
 **Added**
- - ``collections``, ``datetime`` and ``decimal`` are now ``from ...`` importable
+
+- ``collections``, ``datetime`` and ``decimal`` are now ``from ...`` importable
 
 **Changed**
- - ``import`` is now permitted for third-party libraries
+
+- ``import`` is now permitted for third-party libraries
 
 **Fixed**
- - ``__future__`` imports were incorrectly being marked as import order errors
+
+- ``__future__`` imports were incorrectly being marked as import order errors
 
 1.0.2 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
@@ -95,7 +98,8 @@ Fix for incorrect metadata on PyPI
 ~~~~~~~~~~~~~~~~~~
 
 **Fixed**
- - Incorrect ``install_requires`` definition in ``setup.py``
+
+- Incorrect ``install_requires`` definition in ``setup.py``
 
 1.0.0 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
