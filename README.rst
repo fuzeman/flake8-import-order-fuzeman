@@ -74,6 +74,11 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.0.2 (2017-02-22)
+~~~~~~~~~~~~~~~~~~
+
+Fix for incorrect metadata on PyPI
+
 1.0.1 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
 
