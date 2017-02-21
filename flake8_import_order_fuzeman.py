@@ -82,11 +82,6 @@ class Fuzeman(Style):
                             'A standard library is imported using '
                             '"from {0} import ..." statement. Should be '
                             '"import {0}" instead.'.format(mod))
-            elif i.type == IMPORT_3RD_PARTY and not i.is_from:
-                yield Error(i.lineno, 'I902',
-                            'A third party library is imported using '
-                            '"import {0}" statement. Should be '
-                            '"from {0} import ..." instead.'.format(mod))
             elif i.type in (IMPORT_APP, IMPORT_APP_PACKAGE) and not i.is_from:
                 yield Error(i.lineno, 'I902',
                             'An app module is imported using "import {0}"'
@@ -179,7 +174,7 @@ class TestCase(unittest.TestCase):
         '''
     )
 
-    test_3rd_parties_must_be_from_import = make_test(['I902'], '''
+    test_can_import_3rd_parties = make_test([], '''
         import pkg_resources
     ''')
 
