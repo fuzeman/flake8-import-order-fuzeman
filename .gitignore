@@ -1,7 +1,10 @@
-*.egg-info
-*.pyc
 .*.swp
 .eggs
 .tox
+
 build
 dist
+
+*.egg-info
+*.iml
+*.pyc

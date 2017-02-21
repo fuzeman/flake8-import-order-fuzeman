@@ -1,101 +1,80 @@
-flake8-import-order-spoqa
-=========================
+flake8-import-order-fuzeman
+===========================
 
-.. image:: https://img.shields.io/pypi/v/flake8-import-order-spoqa.svg
-   :target: https://pypi.python.org/pypi/flake8-import-order-spoqa
+.. image:: https://img.shields.io/pypi/v/flake8-import-order-fuzeman.svg
+   :target: https://pypi.python.org/pypi/flake8-import-order-fuzeman
 
-.. image:: https://travis-ci.org/spoqa/flake8-import-order-spoqa.svg
-   :target: https://travis-ci.org/spoqa/flake8-import-order-spoqa
+.. image:: https://travis-ci.org/fuzeman/flake8-import-order-fuzeman.svg
+   :target: https://travis-ci.org/fuzeman/flake8-import-order-fuzeman
 
-This extends flake8-import-order_ to implement Spoqa's import order convention.
-It bascially follows PEP 8 with our some additional rules:
-
--  Standard libraries shouldn't be imported using ``from ... import ...``
-   statement.  It's because standard libraries tend to use general terms
-   like ``open``.  We instead use always qualified imports to eliminate
-   name pollution:
-
-   .. code-block:: python
-
-      import sys  # Yes
-
-      from sys import version_info  # No
-
-   However, there are few exceptions like ``typing`` module.  They can be
-   imported in both ways:
-
-   .. code-block:: python
-
-      import typing
-      from typing import Optional  # `from ... import ...` must be latter
-
--  All other than standard libraries should be imported using
-   ``from ... import ...`` statement:
-
-   .. code-block:: python
-
-      from flask import Flask  # Yes
-
-      import flask  # No
-
--  Deeper relative imports should go former.  This rule makes consistent
-   even when relative imports are rewritten as absolute imports.
-
-   .. code-block:: python
-
-      from ..deeper import former
-      from ...deepest import later
-
--  Imported names are splited to three categories:  ``CONSTANT_NAME``,
-   ``ClassName``, and ``normal_names``, and follow that order:
-
-   .. code-block:: python
-
-      from something import CONST_A, CONST_B, ClassA, ClassB, any_func, any_var
+Import ordering style for flake8-import-order_, fork of flake8-import-order-spoqa_ which
+has been updated to implement `@fuzeman`__'s preferred import ordering convention.
 
 .. _flake8-import-order: https://github.com/PyCQA/flake8-import-order
+.. _flake8-import-order-spoqa: https://github.com/spoqa/flake8-import-order-spoqa
+
+__ https://github.com/fuzeman
+
+
+Example
+-------
+
+.. code-block:: python
+
+    from myapp import something
+    from myapp.helpers import get_view
+    from myapp.views import *
+    from ...deepest import a
+    from ..deeper import b
+    from .a import this, that
+    from .z import This, That
+
+    from pkg_resources import (SOURCE_DIST, EntryPoint, Requirement, get_provider)
+    from typing import Optional
+    import datetime
+    import sys
 
 
 Usage
 -----
 
-Install the ``flake8-import-order-spoqa`` using pip_, and then specify
-``--import-order-style=spoqa`` option.  Or you can specify it on the config_
-file as well:
+Install the ``flake8-import-order-fuzeman`` package with pip_, and then enable the
+import order style with either:
 
-.. code-block:: ini
+- Command-line option:
 
-   [flake8]
-   import-order-style = spoqa
+  .. code-block:: shell
 
-Because `runtime extensible styles`__ is introduced__ from
-flake-import-order 0.12, you need to install flake-import-order 0.12 or later.
+    --import-order-style=fuzeman
 
-.. _pip: http://pip-installer.org/
-.. _config: http://flake8.pycqa.org/en/latest/user/configuration.html
-__ https://github.com/PyCQA/flake8-import-order#extending-styles
-__ https://github.com/PyCQA/flake8-import-order/pull/103
+- `flake8 configuration file:`__
+
+  .. code-block:: ini
+
+     [flake8]
+     import-order-style = fuzeman
+
+.. _pip: https://pip.pypa.io
+
+__ http://flake8.pycqa.org/en/latest/user/configuration.html
 
 
 Distribution
 ------------
 
-Written by `Hong Minhee`__, and distributed under GPLv3_ or later.
+Written by `Dean Gardiner`__, forked from flake8-import-order-spoqa_ written by `Hong Minhee`__, and
+distributed under the GPLv3_ license or later.
 
-__ https://hongminhee.org/
 .. _GPLv3: https://www.gnu.org/licenses/gpl-3.0.html
+
+__ https://github.com/fuzeman
+__ https://hongminhee.org/
 
 
 Changelog
 ---------
 
-Version 1.0.1
-~~~~~~~~~~~~~
+1.0.0 (2017-02-22)
+~~~~~~~~~~~~~~~~~~
 
-To be released.
-
-
-Version 1.0.0
-~~~~~~~~~~~~~
-
-Initial release.  Released February 12, 2017.
+Initial release

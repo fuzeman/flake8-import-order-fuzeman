@@ -12,23 +12,23 @@ def readme():
 
 
 setup(
-    name='flake8-import-order-spoqa',
-    version='1.0.1',
-    description="Spoqa's import order style for flake8-import-order",
+    name='flake8-import-order-fuzeman',
+    version='1.0.0',
+    description="Fuzeman's import order style for flake8-import-order",
     long_description=readme(),
-    url='https://github.com/spoqa/flake8-import-order-spoqa',
-    author='Hong Minhee',
-    author_email='hong.minhee' '@' 'gmail.com',
-    maintainer='Spoqa',
-    maintainer_email='dev' '@' 'spoqa.com',
+    url='https://github.com/fuzeman/flake8-import-order-fuzeman',
+    author='Dean Gardiner',
+    author_email='me@dgardiner.net',
+    maintainer='Dean Gardiner',
+    maintainer_email='me@dgardiner.net',
     license='GPLv3 or later',
-    py_modules=['flake8_import_order_spoqa'],
+    py_modules=['flake8_import_order_fuzeman'],
     install_requires=['flake8-import-order >= 0.12'],
     entry_points='''
         [flake8_import_order.styles]
-        spoqa = flake8_import_order_spoqa:Spoqa
+        fuzeman = flake8_import_order_fuzeman:Fuzeman
     ''',
-    test_suite='flake8_import_order_spoqa.TestCase',
+    test_suite='flake8_import_order_fuzeman.TestCase',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Flake8',
