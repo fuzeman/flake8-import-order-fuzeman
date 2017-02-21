@@ -123,7 +123,7 @@ class TestCase(unittest.TestCase):
 
     test_valid_1 = make_test([], '''
         from __future__ import absolute_import
-    
+
         from myapp import something
         from myapp.helpers import get_view
         from myapp.views import *
