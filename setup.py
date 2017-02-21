@@ -14,7 +14,7 @@ def readme():
 setup(
     name='flake8-import-order-fuzeman',
     version='1.0.0',
-    description="Fuzeman's import order style for flake8-import-order",
+    description="@fuzeman's import order style for flake8-import-order",
     long_description=readme(),
     url='https://github.com/fuzeman/flake8-import-order-fuzeman',
     author='Dean Gardiner',
