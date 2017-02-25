@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.2.0 (2017-02-25)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+- ``from ... import ...`` is now permitted for ``argparse``, ``pprint``, ``subprocess`` and ``threading``
+
 1.1.1 (2017-02-22)
 ~~~~~~~~~~~~~~~~~~
 
