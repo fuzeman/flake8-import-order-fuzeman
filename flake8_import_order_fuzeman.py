@@ -13,9 +13,13 @@ __all__ = 'Fuzeman',
 
 class Fuzeman(Style):
     from_importable_standard_librarires = frozenset([
+        'argparse',
         'collections',
         'datetime',
         'decimal',
+        'pprint',
+        'subprocess',
+        'threading',
         'typing'
     ])
 
