@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.3.0 (2017-03-07)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+ - ``from ... import ...`` is now permitted for ``copy``
+
 1.2.0 (2017-02-25)
 ~~~~~~~~~~~~~~~~~~
 
