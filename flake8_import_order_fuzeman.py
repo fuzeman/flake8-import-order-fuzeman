@@ -22,6 +22,7 @@ class Fuzeman(Style):
         'pkgutil',
         'pprint',
         'subprocess',
+        'tempfile',
         'threading',
         'typing'
     ])
