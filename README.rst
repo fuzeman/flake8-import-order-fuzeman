@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.6.0 (2017-05-10)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+- ``from ... import ...`` is now permitted for ``contextlib``
+
 1.5.0 (2017-05-10)
 ~~~~~~~~~~~~~~~~~~
 
