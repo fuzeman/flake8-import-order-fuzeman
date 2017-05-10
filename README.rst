@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.4.0 (2017-05-10)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+ - ``from ... import ...`` is now permitted for ``json`` and ``pkgutil``
+
 1.3.0 (2017-03-07)
 ~~~~~~~~~~~~~~~~~~
 
