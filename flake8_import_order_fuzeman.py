@@ -15,6 +15,7 @@ class Fuzeman(Style):
     from_importable_standard_librarires = frozenset([
         'argparse',
         'collections',
+        'contextlib',
         'copy',
         'datetime',
         'decimal',
