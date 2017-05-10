@@ -18,6 +18,8 @@ class Fuzeman(Style):
         'copy',
         'datetime',
         'decimal',
+        'json',
+        'pkgutil',
         'pprint',
         'subprocess',
         'threading',
