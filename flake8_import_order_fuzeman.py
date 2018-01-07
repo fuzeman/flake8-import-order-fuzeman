@@ -1,5 +1,8 @@
-from flake8_import_order import (IMPORT_3RD_PARTY, IMPORT_APP, IMPORT_APP_PACKAGE, IMPORT_APP_RELATIVE,
-                                 IMPORT_FUTURE, IMPORT_STDLIB)
+from flake8_import_order import (
+    IMPORT_3RD_PARTY, IMPORT_APP, IMPORT_APP_PACKAGE,
+    IMPORT_APP_RELATIVE, IMPORT_FUTURE, IMPORT_STDLIB,
+    ClassifiedImport
+)
 from flake8_import_order.checker import ImportOrderChecker
 from flake8_import_order.styles import Error, Style, lookup_entry_point
 import ast
@@ -85,7 +88,10 @@ class Fuzeman(Style):
         )
 
     def check(self):
-        for i in self.imports:
+        for i in self.nodes:
+            if not isinstance(i, ClassifiedImport):
+                continue
+
             mod = i.modules[0]
 
             if i.type == IMPORT_STDLIB and i.is_from and mod not in self.from_importable_standard_librarires:
