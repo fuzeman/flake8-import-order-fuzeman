@@ -74,6 +74,13 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.7.0 (2018-01-08)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+- Support for flake8-import-order >= 0.16 *(support has been dropped for earlier versions)*
+
 1.6.0 (2017-05-10)
 ~~~~~~~~~~~~~~~~~~
 
