@@ -4,8 +4,8 @@ flake8-import-order-fuzeman
 .. image:: https://img.shields.io/pypi/v/flake8-import-order-fuzeman.svg
    :target: https://pypi.python.org/pypi/flake8-import-order-fuzeman
 
-.. image:: https://travis-ci.org/fuzeman/flake8-import-order-fuzeman.svg
-   :target: https://travis-ci.org/fuzeman/flake8-import-order-fuzeman
+.. image:: https://github.com/github/docs/actions/workflows/test.yml/badge.svg
+   :target: https://github.com/fuzeman/flake8-import-order-fuzeman/actions/workflows/test.yml
 
 Import ordering style for flake8-import-order_, fork of flake8-import-order-spoqa_ which
 has been updated to implement `@fuzeman`__'s preferred import ordering convention.
