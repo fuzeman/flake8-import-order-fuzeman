@@ -1,6 +1,5 @@
 from flake8_import_order import (
-    IMPORT_3RD_PARTY, IMPORT_APP, IMPORT_APP_PACKAGE,
-    IMPORT_APP_RELATIVE, IMPORT_FUTURE, IMPORT_STDLIB,
+    ImportType,
     ClassifiedImport
 )
 from flake8_import_order.checker import ImportOrderChecker
@@ -9,7 +8,7 @@ import ast
 import textwrap
 import unittest
 
-IMPORT_EXTERNAL_SET = {IMPORT_STDLIB, IMPORT_3RD_PARTY}
+IMPORT_EXTERNAL_SET = {ImportType.STDLIB, ImportType.THIRD_PARTY}
 
 __all__ = 'Fuzeman',
 
@@ -61,12 +60,12 @@ class Fuzeman(Style):
         group = import_.type
 
         # Reorder import types
-        if group in (IMPORT_APP, IMPORT_APP_PACKAGE):
-            group += IMPORT_APP_RELATIVE
-        elif group == IMPORT_FUTURE:
-            group += IMPORT_APP + IMPORT_APP_RELATIVE + 10
-        elif group == IMPORT_3RD_PARTY:
-            group = IMPORT_STDLIB
+        if group in (ImportType.APPLICATION, ImportType.APPLICATION_PACKAGE):
+            group += ImportType.APPLICATION_RELATIVE
+        elif group == ImportType.FUTURE:
+            group += ImportType.APPLICATION + ImportType.APPLICATION_RELATIVE + 10
+        elif group == ImportType.THIRD_PARTY:
+            group = ImportType.STDLIB
 
         # Order `import ...` below `from ... import ...`
         if not import_.is_from:
@@ -84,7 +83,7 @@ class Fuzeman(Style):
             (previous.type in IMPORT_EXTERNAL_SET and current.type in IMPORT_EXTERNAL_SET) or
 
             # Both imports are relative
-            {previous.type, current.type} <= {IMPORT_APP, IMPORT_APP_RELATIVE}
+            {previous.type, current.type} <= {ImportType.APPLICATION, ImportType.APPLICATION_RELATIVE}
         )
 
     def check(self):
@@ -94,12 +93,12 @@ class Fuzeman(Style):
 
             mod = i.modules[0]
 
-            if i.type == IMPORT_STDLIB and i.is_from and mod not in self.from_importable_standard_librarires:
+            if i.type == ImportType.STDLIB and i.is_from and mod not in self.from_importable_standard_librarires:
                 yield Error(i.lineno, 'I901',
                             'A standard library is imported using '
                             '"from {0} import ..." statement. Should be '
                             '"import {0}" instead.'.format(mod))
-            elif i.type in (IMPORT_APP, IMPORT_APP_PACKAGE) and not i.is_from:
+            elif i.type in (ImportType.APPLICATION, ImportType.APPLICATION_PACKAGE) and not i.is_from:
                 yield Error(i.lineno, 'I902',
                             'An app module is imported using "import {0}"'
                             ' statement. Should be "from {0} import ..."'
@@ -121,7 +120,7 @@ class TestCase(unittest.TestCase):
 
         errors = list(checker.check_order())
 
-        self.assertEquals(
+        self.assertEqual(
             frozenset(expected_error_codes),
             frozenset(error.code for error in errors)
         )
