@@ -74,6 +74,17 @@ __ https://hongminhee.org/
 Changelog
 ---------
 
+1.8.0 (2023-04-12)
+~~~~~~~~~~~~~~~~~~
+
+**Added**
+
+ - Compatibility with newer versions of flake8-import-order
+
+**Changed**
+
+ - Dropped support for Python 2.7, and Python < 3.7
+
 1.7.0 (2018-01-08)
 ~~~~~~~~~~~~~~~~~~
 
